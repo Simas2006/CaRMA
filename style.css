@@ -4,6 +4,9 @@ body {
 table,td {
   border: 1px solid #ccc;
 }
+td.middle {
+  width: 50%;
+}
 .inline {
   display: inline;
 }

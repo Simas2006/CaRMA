@@ -47,6 +47,7 @@ function calculateItems() {
     row.appendChild(col);
     var col = document.createElement("td");
     col.innerText = results[i][3].split("%year%").join(new Date().getFullYear());
+    col.className = "middle";
     row.appendChild(col);
     var col = document.createElement("td");
     var box = document.createElement("input");
