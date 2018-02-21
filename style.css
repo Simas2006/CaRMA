@@ -4,3 +4,9 @@ body {
 table,td {
   border: 1px solid #ccc;
 }
+.inline {
+  display: inline;
+}
+.center {
+  text-align: center;
+}

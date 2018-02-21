@@ -5,7 +5,7 @@ var data;
 function buildCheckboxes() {
   var boxes = document.getElementById("boxes");
   for ( var i = 0; i < qualifiers.length; i++ ) {
-    var item = document.createElement("p");
+    var item = document.createElement("span");
     var box = document.createElement("input");
     box.type = "checkbox";
     box.id = "b:" + i;
@@ -16,7 +16,7 @@ function buildCheckboxes() {
     }
     item.appendChild(box);
     var span = document.createElement("span");
-    span.innerText = " " + qualifiers[i] + " ";
+    span.innerHTML = " " + qualifiers[i] + "&nbsp;&nbsp;&nbsp;";
     item.appendChild(span);
     boxes.appendChild(item);
   }
@@ -40,7 +40,7 @@ function calculateItems() {
     col.innerText = results[i][0];
     row.appendChild(col);
     var col = document.createElement("td");
-    col.innerText = results[i][3];
+    col.innerText = results[i][3].split("%year%").join(new Date().getFullYear());
     row.appendChild(col);
     var col = document.createElement("td");
     var box = document.createElement("input");

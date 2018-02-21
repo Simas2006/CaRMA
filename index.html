@@ -10,9 +10,41 @@
   <script src="script.js"></script>
 </head>
 <body>
+  <div>
+    <span>
+      Name:
+      <input type="text" id="name" />
+      &nbsp;&nbsp;
+      DOB/Age (at year end):
+      <input type="text" id="age" size="6" />
+      &nbsp;&nbsp;
+    </span>
+    <form class="inline">
+      <div class="inline">
+        <input type="radio" name="gender" checked>
+        Male
+      </div>
+      <span>&nbsp;&nbsp;</span>
+      <div class="inline">
+        <input type="radio" name="gender">
+        Female
+      </div>
+    </form>
+  </div>
+  <hr />
   <div id="boxes">
   </div>
-  <table id="results">
+  <br />
+  <hr />
+  <br />
+  <table class="table">
+    <thead>
+      <td><b>Measure</b></td>
+      <td><b>Target</b></td>
+      <td><b>Done?</b></td>
+    </thead>
+    <tbody id="results">
+    </tbody>
   </table>
 </body>
 </html>
