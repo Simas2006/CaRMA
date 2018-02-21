@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hamilton Online</title>
+  <title>Checkbox Page</title>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -10,23 +10,26 @@
   <script src="script.js"></script>
 </head>
 <body>
+  <div class="jumbotron center">
+    <h1>Checkbox Page</h1>
+  </div>
   <div>
     <span>
       Name:
-      <input type="text" id="name" />
+      <input type="text" id="name" placeholder="   optional" />
       &nbsp;&nbsp;
       DOB/Age (at year end):
-      <input type="text" id="age" size="6" />
+      <input type="text" id="age" size="4" placeholder="yyyy" onchange="calculateItems()" />
       &nbsp;&nbsp;
     </span>
-    <form class="inline">
+    <form class="inline" name="genderForm">
       <div class="inline">
-        <input type="radio" name="gender" checked>
+        <input type="radio" name="gender" value="male" checked onchange="calculateItems()">
         Male
       </div>
       <span>&nbsp;&nbsp;</span>
       <div class="inline">
-        <input type="radio" name="gender">
+        <input type="radio" name="gender" value="female" onchange="calculateItems()">
         Female
       </div>
     </form>

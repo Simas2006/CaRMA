@@ -5,6 +5,7 @@ var data;
 function buildCheckboxes() {
   var boxes = document.getElementById("boxes");
   for ( var i = 0; i < qualifiers.length; i++ ) {
+    if ( qualifiers[i] == "female" ) continue;
     var item = document.createElement("span");
     var box = document.createElement("input");
     box.type = "checkbox";
@@ -27,7 +28,12 @@ function calculateItems() {
   while ( table.firstChild ) {
     table.removeChild(table.firstChild);
   }
+  qualifierResults[qualifiers.indexOf("female")] = document.forms.genderForm.gender.value == "female";
+  var age = parseInt(document.getElementById("age").value);
+  if ( age > 200 ) age = new Date().getFullYear() - age;
   var results = data.filter(item => {
+    if ( item[1][0] > age ) return false;
+    if ( item[1][1] < age && item[1][1] !== true ) return false;
     return item[2].map(jtem => {
       var val = qualifierResults[qualifiers.indexOf(jtem.startsWith("-") ? jtem.slice(1) : jtem)];
       if ( ! jtem.startsWith("-") ) return val;
@@ -46,6 +52,12 @@ function calculateItems() {
     var box = document.createElement("input");
     box.type = "checkbox";
     col.appendChild(box);
+    var space = document.createElement("span");
+    space.innerHTML = "&nbsp;";
+    col.appendChild(space);
+    var input = document.createElement("input");
+    input.type = "text";
+    col.appendChild(input);
     row.appendChild(col);
     table.appendChild(row);
   }
