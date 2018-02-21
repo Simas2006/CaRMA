@@ -17,7 +17,7 @@ function buildCheckboxes() {
     }
     item.appendChild(box);
     var span = document.createElement("span");
-    span.innerHTML = " " + qualifiers[i] + "&nbsp;&nbsp;&nbsp;";
+    span.innerHTML = " " + (qualifiers[i] == "smoking15" ? "smoked 30+ pack/yr, quit <15 years ago or still smoking" : qualifiers[i] == "smoking" ? "smoking history" : qualifiers[i]) + "&nbsp;&nbsp;&nbsp;";
     item.appendChild(span);
     boxes.appendChild(item);
   }
@@ -40,6 +40,7 @@ function calculateItems() {
       else return ! val;
     }).indexOf(false) <= -1;
   });
+  results = results.filter((item,index) => results.map(jtem => jtem[0]).indexOf(item[0]) == index);
   for ( var i = 0; i < results.length; i++ ) {
     var row = document.createElement("tr");
     var col = document.createElement("td");
